@@ -1,11 +1,15 @@
 <template>
   <main>
-      <Card v-for="(element, index) in elementList" :key="index" :element="element"/>
+      <h2>Movies:</h2>
+      <CardDisplay :countryList="getCountry" :searchedText="searchedText" :searchedTipe="'movie'" :title="'title'" :originalTitle="'original_title'"/>
+      <h2>TV Show</h2>
+      <CardDisplay :countryList="getCountry" :searchedText="searchedText" :searchedTipe="'tv'" :title="'name'" :originalTitle="'original_name'"/>
   </main>
 </template>
 
 <script>
-import Card from '../components/Card.vue';
+import CardDisplay from './CardDisplay.vue';
+
 import Vue from 'vue';
 import axios from 'axios';
 import AsyncComputed from 'vue-async-computed';
@@ -14,27 +18,24 @@ Vue.use(AsyncComputed);
 
 export default {
     name: 'Main',
-    props: ['searchedText'],
     components: {
-        Card
+        CardDisplay
     },
-    data() {
-        return {
-            BaseUri: 'https://api.themoviedb.org/3',
-            ApiKey: 'api_key=53daa74f0d09de5eebf1b3c546d9edc6',
-        }
-    },
+    // Main.vue riceve il testo ricercato è lo passa tramite props a CardDisplay.vue
+    props: ["searchedText"],
     asyncComputed: {
-        async elementList() {
+        // Lista di tutte le nazioni con codice 3166 (utilizzata poi in Card.vue)
+        async getCountry() {
             let auxArray = [];
-            if (this.searchedText != 0) {
-                await axios.get(this.BaseUri + '/search/movie?' + this.ApiKey + '&query=' + this.searchedText).then((res) => {
-                    auxArray = res.data.results;
-                })
-            }
-            return auxArray;
+            await axios.get('https://datahub.io/core/country-list/r/data.json').then((res) => {
+                auxArray = res.data;
+            })
+            let auxArray2 = auxArray.map((element) => {
+                return element.Code;
+            })
+            return auxArray2
         }
-    },
+    }
 }
 </script>
 

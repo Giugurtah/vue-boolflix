@@ -21,6 +21,7 @@ export default {
     }
   },
   methods: {
+    // App riceve da Header.vue il testo ricercato e lo passa tramite props a Main.vue
     get(string) {
       this.searchedText = string;
     }
