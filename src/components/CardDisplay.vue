@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="row g-4">
+      <h2 v-if="elementList.length!=0" class="prime_color_txt fs-2 mt-5">{{searchedTipe.toUpperCase()}}:</h2>
       <Card v-for="(element, index) in elementList" :key="index" :element="element" :countryList="countryList" :title="title" :originalTitle="originalTitle"/>
   </div>
 </template>
@@ -41,6 +42,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>

@@ -1,6 +1,7 @@
 <template>
-    <div class="card">
-        <ul :style="{ backgroundImage : this.getImg() }">
+    <div class="card col-3 gx-3 p-0 second_color white white_border text-center">
+        <img :src="this.getImg()" alt="">
+        <ul>
             <li><span>Titolo:</span> {{element[title]}} </li>
             <li><span>Titolo originale:</span> {{element[originalTitle]}} </li>
             <li><span>Lingua: </span> 
@@ -45,9 +46,9 @@ export default {
   methods: {
       getImg() {
           if (this.element.poster_path != null) {
-              return 'url(https://image.tmdb.org/t/p/w342' + this.element.poster_path + ')'
+              return 'https://image.tmdb.org/t/p/w342' + this.element.poster_path
           }
-          return 'url(https://www.altavod.com/assets/images/poster-placeholder.png)'
+          return 'https://www.altavod.com/assets/images/poster-placeholder.png'
       },
       getScore(number) {
           let score = Math.ceil(number / 2);
@@ -65,19 +66,13 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 ul {
     display: inline-block;
-    height: 300px;
-    width: 150px;
+    list-style: none;
 
-    background-position: center;
-    background-size: cover;
-}
-span {
-    font-weight: 800;
-}
-.casa {
-
+    span {
+        font-weight: 800;
+    }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
-  <header>
-      <Search @searchedText="emit" />
+  <header class="d-flex justify-content-between align-items-center black p-3">
+      <div class="prime_color_txt font_logo ms-3">BOOTSTRAP</div>
+      <Search class="me-3" @searchedText="emit" />
   </header>
 </template>
 

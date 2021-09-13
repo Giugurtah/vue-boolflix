@@ -1,0 +1,36 @@
+body {
+    background-color: $second_color;
+}
+// Color properties
+.prime_color {
+    background-color: $prime_color;
+}
+.prime_color_txt {
+    color: $prime_color;
+}
+.prime_border {
+    border: 2px solid $prime_color;
+}
+.second_color {
+    background-color: $second_color;
+}
+.black {
+    background-color: rgb(10, 10, 10);
+}
+.white {
+    background-color: white;
+}
+.white_border {
+    border: 1px solid white;
+}
+.white_txt {
+    color: white;
+}
+
+// Font properties
+body {
+    font-family: 'Passion One', cursive;
+}
+.font_logo {
+    font-size: $font_big;
+}

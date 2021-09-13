@@ -1,8 +1,6 @@
 <template>
-  <main>
-      <h2>Movies:</h2>
+  <main class="container">
       <CardDisplay :countryList="getCountry" :searchedText="searchedText" :searchedTipe="'movie'" :title="'title'" :originalTitle="'original_title'"/>
-      <h2>TV Show</h2>
       <CardDisplay :countryList="getCountry" :searchedText="searchedText" :searchedTipe="'tv'" :title="'name'" :originalTitle="'original_name'"/>
   </main>
 </template>
@@ -39,6 +37,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
