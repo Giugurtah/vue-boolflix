@@ -1,5 +1,5 @@
 <template>
-    <div class="card col-3 gx-3 p-0 rounded-0 second_color white white_border text-center">
+    <div class="card col-2 p-0 rounded-0 second_color white white_border text-center">
         <img :src="this.getImg()" alt="">
         <ul>
             <li><span>Titolo:</span> {{element[title]}} </li>
