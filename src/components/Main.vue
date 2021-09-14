@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main class="container mb-3">
       <CardDisplay :countryList="countryList" :searchedText="searchedText" :searchedTipe="'movie'" :title="'title'" :originalTitle="'original_title'"/>
       <CardDisplay :countryList="countryList" :searchedText="searchedText" :searchedTipe="'tv'" :title="'name'" :originalTitle="'original_name'"/>
   </main>

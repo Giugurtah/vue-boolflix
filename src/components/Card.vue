@@ -1,19 +1,21 @@
 <template>
-    <div class="card col-2 p-0 rounded-0 second_color white white_border text-center">
-        <img :src="this.getImg()" alt="">
-        <ul>
-            <li><span>Titolo:</span> {{element[title]}} </li>
-            <li><span>Titolo originale:</span> {{element[originalTitle]}} </li>
-            <li><span>Lingua: </span> 
-            <!-- contryflag.io è un sito che risponde con l'icona delle NAZIONI coincidenti al codice iso 3166 -->
-            <img v-if="langCode != ''" :src="'https://www.countryflags.io/' + langCode + '/flat/16.png'">
-            <span v-else>{{element.original_language}}</span>
-             </li>
-            <li>
-                <span>Voto:</span>
-                <i v-for="n in 5" :key="n" :class="n <= vote ? 'fas' : 'far' " class="fa-star"></i>
-            </li>
-        </ul>
+    <div class="col-2">
+        <div class="white h-100 p-2 rounded-0 text-center">
+            <img :src="this.getImg()" class="w-100" alt="">
+            <ul class="ps-0 mt-3">
+                <li><span class="prime_color_txt">Titolo:</span> {{element[title]}} </li>
+                <li><span class="prime_color_txt">Titolo originale:</span> {{element[originalTitle]}} </li>
+                <li><span class="prime_color_txt">Lingua: </span>
+                <!-- contryflag.io è un sito che risponde con l'icona delle NAZIONI coincidenti al codice iso 3166 -->
+                <img v-if="langCode != ''" :src="'https://www.countryflags.io/' + langCode + '/flat/16.png'">
+                <span v-else>{{element.original_language}}</span>
+                    </li>
+                <li>
+                    <span class="prime_color_txt">Voto:</span>
+                    <i v-for="n in 5" :key="n" :class="n <= vote ? 'fas' : 'far' " class="fa-star"></i>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -60,9 +62,5 @@ export default {
 ul {
     display: inline-block;
     list-style: none;
-
-    span {
-        font-weight: 800;
-    }
 }
 </style>
