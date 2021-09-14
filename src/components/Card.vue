@@ -1,5 +1,5 @@
 <template>
-    <div class="card col-3 gx-3 p-0 second_color white white_border text-center">
+    <div class="card col-3 gx-3 p-0 rounded-0 second_color white white_border text-center">
         <img :src="this.getImg()" alt="">
         <ul>
             <li><span>Titolo:</span> {{element[title]}} </li>
@@ -11,7 +11,7 @@
              </li>
             <li>
                 <span>Voto:</span>
-                <i v-for="(element, index) in getScore(element.vote_average)" :key="index" :class="element" class="fa-star"></i>
+                <i v-for="n in 5" :key="n" :class="n <= vote ? 'fas' : 'far' " class="fa-star"></i>
             </li>
         </ul>
     </div>
@@ -41,6 +41,9 @@ export default {
         }
 
         return auxString
+    },
+    vote() {
+        return Math.ceil(this.element.vote_average / 2)
     }
   },
   methods: {
@@ -49,19 +52,6 @@ export default {
               return 'https://image.tmdb.org/t/p/w342' + this.element.poster_path
           }
           return 'https://www.altavod.com/assets/images/poster-placeholder.png'
-      },
-      getScore(number) {
-          let score = Math.ceil(number / 2);
-          console.log(score);
-          let auxArray = [];
-          for (let i = 0; i<score; i++) {
-              auxArray[i] = "fas";
-          }
-          for (let i = score; i<5; i++) {
-              auxArray[i] = "far";
-          }
-          console.log(auxArray);
-          return auxArray;
       }
   }
 }
